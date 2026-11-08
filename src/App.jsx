@@ -10,13 +10,31 @@ const reveal = {
 }
 
 const navItems = [
-  ['Home', '#home'],
   ['About', '#about'],
   ['Projects', '#projects'],
   ['Tech Stack', '#stack'],
   ['Setup', '#setup'],
   ['Lab', '#lab'],
   ['Contact', '#contact'],
+]
+
+const interests = [
+  'Software development',
+  'Web development',
+  'Discord bots',
+  'Automation',
+  'Backend systems',
+  'Databases & infrastructure',
+  'UI/UX design',
+  'PC hardware',
+  'Gaming technology',
+  'Minecraft modding & optimisation',
+]
+
+const principles = [
+  ['Build something real', 'I learn fastest from projects that actually run, break and get fixed.'],
+  ['Keep it honest', 'I call things what they are: a bot in progress is in progress, not finished.'],
+  ['Small, then bigger', 'Start with one feature that works, then grow it into a system.'],
 ]
 
 function Nav() {
@@ -55,14 +73,23 @@ function Nav() {
 function Hero() {
   return (
     <section id="home" className="hero">
-      <motion.p className="eyebrow" {...reveal}>Developer &middot; Creator</motion.p>
-      <motion.h1 className="name" {...reveal}>Adrien</motion.h1>
-      <motion.p className="alias" {...reveal}>aka Twirly</motion.p>
-      <motion.p className="intro" {...reveal}>{site.tagline}</motion.p>
-      <motion.div className="hero-actions" {...reveal}>
-        <a className="btn" href="#projects">See projects</a>
-        <a className="btn ghost" href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      </motion.div>
+      <div className="hero-text">
+        <motion.p className="eyebrow" {...reveal}>Developer &middot; Creator &middot; {site.location}</motion.p>
+        <motion.h1 className="name" {...reveal}>Adrien</motion.h1>
+        <motion.p className="alias" {...reveal}>aka Twirly</motion.p>
+        <motion.p className="intro" {...reveal}>{site.tagline}</motion.p>
+        <motion.div className="hero-actions" {...reveal}>
+          <a className="btn" href="#projects">See projects</a>
+          <a className="btn ghost" href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </motion.div>
+      </div>
+      <motion.aside className="hero-card" aria-label="Currently" {...reveal}>
+        <p className="label">Currently</p>
+        <p className="big">Building FRIDAY V2</p>
+        <p className="muted">A Discord bot with moderation, security and per-server settings.</p>
+        <p className="label">Learning</p>
+        <p className="big small">Python</p>
+      </motion.aside>
     </section>
   )
 }
@@ -70,17 +97,29 @@ function Hero() {
 function About() {
   return (
     <section id="about" className="about">
-      <motion.h2 {...reveal}>About</motion.h2>
-      <motion.div className="about-body" {...reveal}>
-        <p>
-          I'm still developing my programming skills and learning through real projects. My main project so far is
-          FRIDAY, a Discord bot I build and run with discord.js.
-        </p>
-        <p>
-          I'm interested in software development, Discord bots, automation, backend systems, databases, UI/UX design,
-          PC hardware and gaming technology. I learn best by building something small, breaking it, then fixing it.
-        </p>
-      </motion.div>
+      <div className="about-top">
+        <motion.h2 {...reveal}>About</motion.h2>
+        <motion.p className="lede" {...reveal}>
+          I'm a self-driven developer still building my skills through real projects, not tutorials alone.
+        </motion.p>
+      </div>
+      <div className="about-cols">
+        <motion.div {...reveal}>
+          <h3>Interests</h3>
+          <div className="tags">{interests.map((t) => <span key={t}>{t}</span>)}</div>
+        </motion.div>
+        <motion.div {...reveal}>
+          <h3>How I work</h3>
+          <ul className="principles">
+            {principles.map(([t, d]) => (
+              <li key={t}>
+                <strong>{t}</strong>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
     </section>
   )
 }
@@ -161,8 +200,10 @@ function Projects() {
   const [active, setActive] = useState(null)
   return (
     <section id="projects" className="projects">
-      <motion.h2 {...reveal}>Projects</motion.h2>
-      <p className="note">Mock previews are illustrative, not real screenshots.</p>
+      <motion.div className="section-head" {...reveal}>
+        <h2>Projects</h2>
+        <p className="note">Mock previews are illustrative, not real screenshots.</p>
+      </motion.div>
       <div className="project-list">
         {projects.map((p, i) => (
           <motion.button
@@ -179,6 +220,9 @@ function Projects() {
               <span className="status">{p.status}</span>
               <h3>{p.title}</h3>
               <p>{p.description}</p>
+              <ul className="chips">
+                {p.features.slice(0, 3).map((f) => <li key={f}>{f}</li>)}
+              </ul>
               <span className="more">View details</span>
             </div>
           </motion.button>
@@ -195,12 +239,14 @@ function Stack() {
   return (
     <section id="stack" className="stack">
       <motion.h2 {...reveal}>Tech Stack</motion.h2>
-      {Object.entries(techStack).map(([group, items]) => (
-        <motion.div key={group} className="stack-group" {...reveal}>
-          <h3>{group}</h3>
-          <div className="tags">{items.map((t) => <span key={t}>{t}</span>)}</div>
-        </motion.div>
-      ))}
+      <div className="stack-grid">
+        {Object.entries(techStack).map(([group, items]) => (
+          <motion.div key={group} className="stack-group" {...reveal}>
+            <h3>{group}</h3>
+            <div className="tags">{items.map((t) => <span key={t}>{t}</span>)}</div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   )
 }
@@ -209,29 +255,43 @@ function Setup() {
   return (
     <section id="setup" className="setup">
       <motion.h2 {...reveal}>Setup</motion.h2>
-      <motion.dl className="setup-list" {...reveal}>
-        {setup.map(([k, v]) => (
-          <div key={k}>
-            <dt>{k}</dt>
-            <dd>{v}</dd>
-          </div>
-        ))}
-      </motion.dl>
+      <div className="setup-wrap">
+        <motion.dl className="setup-list" {...reveal}>
+          {setup.map(([k, v]) => (
+            <div key={k}>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </motion.dl>
+        <motion.div className="setup-note" {...reveal}>
+          <p>
+            I also tinker with Minecraft modding and optimisation, using Fabric, Sodium, Xaero's mods and Java.
+          </p>
+        </motion.div>
+      </div>
     </section>
   )
 }
 
 function Lab() {
-  const items = ['Experiment one', 'Experiment two', 'Small prototype']
+  const items = [
+    ['Experiments', 'Small tests of new ideas, kept messy on purpose.'],
+    ['Prototypes', 'Quick builds to check whether an idea is worth a full project.'],
+    ['Future projects', 'Things I plan to build once I have the skills for them.'],
+  ]
   return (
     <section id="lab" className="lab">
-      <motion.h2 {...reveal}>Lab</motion.h2>
-      <p className="note">Placeholders until I add real experiments.</p>
+      <motion.div className="section-head" {...reveal}>
+        <h2>Lab</h2>
+        <p className="note">Placeholders until I add real work here.</p>
+      </motion.div>
       <div className="lab-grid">
-        {items.map((t) => (
+        {items.map(([t, d]) => (
           <motion.div key={t} className="lab-card" {...reveal}>
+            <span className="status">Coming soon</span>
             <h3>{t}</h3>
-            <p>Coming soon</p>
+            <p>{d}</p>
           </motion.div>
         ))}
       </div>
@@ -242,12 +302,15 @@ function Lab() {
 function Contact() {
   return (
     <section id="contact" className="contact">
-      <motion.h2 {...reveal}>Find me</motion.h2>
-      <motion.ul className="contact-list" {...reveal}>
-        <li><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
-        {links.discordHandle && <li>Discord: <span>{links.discordHandle}</span></li>}
-        {links.email && <li><a href={`mailto:${links.email}`}>{links.email}</a></li>}
-      </motion.ul>
+      <motion.div className="contact-card" {...reveal}>
+        <h2>Find me</h2>
+        <p className="muted">The best place to reach me is email or Discord.</p>
+        <ul className="contact-list">
+          <li><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+          {links.discordHandle && <li>Discord <span>{links.discordHandle}</span></li>}
+          {links.email && <li><a href={`mailto:${links.email}`}>{links.email}</a></li>}
+        </ul>
+      </motion.div>
     </section>
   )
 }
