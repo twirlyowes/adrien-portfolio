@@ -1,6 +1,6 @@
 // Edit your links and details here in one place.
 export const site = {
-  name: 'Adrien',
+  name: 'ADRIEN',
   alias: 'Twirly',
   handle: '@twirlyowes',
   location: 'Mumbai, India',
@@ -14,7 +14,7 @@ export const links = {
   fridayDashboard: 'https://dashboard-friday-v2.onrender.com',
   fridayLegal: 'https://twirlyowes.github.io/friday-v2-legal/',
   fridayLegalRepo: 'https://github.com/twirlyowes/friday-v2-legal',
-  discord: 'luvher4lyf',
+  discordHandle: 'luvher4lyf',
   discordServer: '',
   email: 'twirlyowes@gmail.com',
 }

@@ -71,8 +71,10 @@ section { padding: 110px 0; }
 .setup-list div { display: flex; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid #E5E5E5; }
 .setup-list span:first-child { color: var(--muted); }
 
+.contact-links { margin-top: 32px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.contact-links a { border-bottom: 1px solid var(--text); padding-bottom: 2px; }
+
 footer { text-align: center; padding: 60px 0; color: var(--muted); font-size: 14px; }
-footer a { border-bottom: 1px solid var(--muted); }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }

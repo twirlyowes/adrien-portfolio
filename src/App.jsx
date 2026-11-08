@@ -96,19 +96,21 @@ export default function App() {
         </div>
       </section>
 
-      <section id="contact" className="tint-lavender" style={{ background: 'var(--lavender)' }}>
+      <section id="contact" style={{ background: 'var(--lavender)' }}>
         <div className="wrap" style={{ textAlign: 'center' }}>
           <motion.h2 {...fade}>Find me</motion.h2>
-          <motion.div style={{ marginTop: 32, display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap' }} {...fade}>
+          <motion.div className="contact-links" {...fade}>
             <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            {links.discord && <a href={links.discord} target="_blank" rel="noopener noreferrer">Discord ↗</a>}
-            {links.email && <a href={`mailto:${links.email}`}>Email</a>}
+            {links.discordHandle && (
+              <span>Discord: {links.discordHandle}</span>
+            )}
+            {links.email && <a href={`mailto:${links.email}`}>{links.email}</a>}
           </motion.div>
         </div>
       </section>
 
       <footer>
-        <p>{site.location} · {site.handle}</p>
+        <p>{site.name} aka {site.alias} · {site.location} · {site.handle}</p>
       </footer>
     </>
   )
