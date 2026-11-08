@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { site, links, projects, techStack, setup } from './config.js'
+import { DashboardMock, ServerMock } from './Mocks.jsx'
+import './mocks.css'
 
 const reveal = {
   initial: { opacity: 0, y: 28 },
@@ -124,40 +126,9 @@ function About() {
   )
 }
 
-function MockFriday() {
-  return (
-    <div className="mock mock-discord" aria-hidden="true">
-      <div className="mock-head">Moderation log</div>
-      {[
-        ['Spam blocked', 'AutoMod', 'just now'],
-        ['Verification passed', 'Captcha', '2m ago'],
-        ['Temp voice created', 'Voice', '5m ago'],
-      ].map(([a, b, c]) => (
-        <div className="mock-row" key={a}>
-          <span>{a}</span>
-          <small>{b} · {c}</small>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function MockDashboard() {
-  return (
-    <div className="mock mock-dash" aria-hidden="true">
-      <div className="mock-side"><span /><span /><span /></div>
-      <div className="mock-main">
-        <div className="mock-toggle"><span>Anti-nuke</span><i className="on" /></div>
-        <div className="mock-toggle"><span>Bad-word filter</span><i className="on" /></div>
-        <div className="mock-toggle"><span>ModMail</span><i /></div>
-      </div>
-    </div>
-  )
-}
-
 function Mock({ title }) {
-  if (title === 'FRIDAY Dashboard') return <MockDashboard />
-  if (title === 'FRIDAY V2') return <MockFriday />
+  if (title === 'FRIDAY Dashboard') return <DashboardMock />
+  if (title === 'FRIDAY V2') return <ServerMock />
   return <div className="mock mock-plain" aria-hidden="true" />
 }
 
