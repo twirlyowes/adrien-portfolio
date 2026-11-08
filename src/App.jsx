@@ -124,37 +124,6 @@ function About() {
   )
 }
 
-function MockFriday() {
-  return (
-    <div className="mock mock-discord" aria-hidden="true">
-      <div className="mock-head">Moderation log</div>
-      {[
-        ['Spam blocked', 'AutoMod', 'just now'],
-        ['Verification passed', 'Captcha', '2m ago'],
-        ['Temp voice created', 'Voice', '5m ago'],
-      ].map(([a, b, c]) => (
-        <div className="mock-row" key={a}>
-          <span>{a}</span>
-          <small>{b} · {c}</small>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function MockDashboard() {
-  return (
-    <div className="mock mock-dash" aria-hidden="true">
-      <div className="mock-side"><span /><span /><span /></div>
-      <div className="mock-main">
-        <div className="mock-toggle"><span>Anti-nuke</span><i className="on" /></div>
-        <div className="mock-toggle"><span>Bad-word filter</span><i className="on" /></div>
-        <div className="mock-toggle"><span>ModMail</span><i /></div>
-      </div>
-    </div>
-  )
-}
-
 function Mock({ title }) {
   const mark = title === 'FRIDAY V2' ? 'F' : title === 'FRIDAY Dashboard' ? 'D' : 'L'
   const tone = title === 'FRIDAY V2' ? 'friday' : title === 'FRIDAY Dashboard' ? 'dashboard' : 'legal'
@@ -210,8 +179,8 @@ function Projects() {
   return (
     <section id="projects" className="projects">
       <motion.div className="section-head" {...reveal}>
-        <h2>Projects</h2>
-        <p className="note">A few things I've been building.</p>
+        <h2>Selected work</h2>
+        <p className="note">A few things I've been building and exploring.</p>
       </motion.div>
       <div className="project-list">
         {projects.map((p, i) => (
