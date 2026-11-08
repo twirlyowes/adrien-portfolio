@@ -156,9 +156,18 @@ function MockDashboard() {
 }
 
 function Mock({ title }) {
-  if (title === 'FRIDAY Dashboard') return <MockDashboard />
-  if (title === 'FRIDAY V2') return <MockFriday />
-  return <div className="mock mock-plain" aria-hidden="true" />
+  const mark = title === 'FRIDAY V2' ? 'F' : title === 'FRIDAY Dashboard' ? 'D' : 'L'
+  const tone = title === 'FRIDAY V2' ? 'friday' : title === 'FRIDAY Dashboard' ? 'dashboard' : 'legal'
+  return (
+    <div className={`project-art project-art-${tone}`} aria-hidden="true">
+      <span className="art-overline">SELECTED WORK <i>·</i> {tone.toUpperCase()}</span>
+      <span className="art-mark">{mark}<b>.</b></span>
+      <span className="art-wordmark">{title}</span>
+      <span className="art-orbit art-orbit-a" />
+      <span className="art-orbit art-orbit-b" />
+      <span className="art-corner">0{tone === 'friday' ? '1' : tone === 'dashboard' ? '2' : '3'}</span>
+    </div>
+  )
 }
 
 function ProjectModal({ project, onClose }) {
@@ -202,7 +211,7 @@ function Projects() {
     <section id="projects" className="projects">
       <motion.div className="section-head" {...reveal}>
         <h2>Projects</h2>
-        <p className="note">Mock previews are illustrative, not real screenshots.</p>
+        <p className="note">A few things I've been building.</p>
       </motion.div>
       <div className="project-list">
         {projects.map((p, i) => (
