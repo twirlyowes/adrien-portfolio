@@ -166,3 +166,59 @@ footer { text-align: center; padding: 64px 28px; color: var(--muted); font-size:
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+
+/* Portfolio art direction and finishing details */
+::selection { background: #ded7f0; color: var(--text); }
+html { scroll-padding-top: 88px; }
+body { -webkit-font-smoothing: antialiased; }
+.topbar { border-bottom: 1px solid rgba(36,36,36,.055); }
+.desktop-nav a { position: relative; padding: 5px 0; transition: color .2s ease; }
+.desktop-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -2px; height: 1px; background: var(--text); transition: right .25s ease; }
+.desktop-nav a:hover::after { right: 0; }
+.hero { min-height: min(760px, calc(100svh - 70px)); }
+.name { letter-spacing: -.06em; }
+.btn { box-shadow: 0 8px 20px rgba(37,36,42,.10); transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 13px 28px rgba(37,36,42,.14); opacity: 1; }
+.btn.ghost { box-shadow: none; }
+.btn.ghost:hover { background: white; }
+.project-art { min-height: 310px; position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border-radius: 28px; border: 1px solid rgba(36,36,36,.045); box-shadow: 0 24px 65px rgba(45,42,55,.07); transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease; }
+.project:hover .project-art { transform: translateY(-7px); box-shadow: 0 30px 70px rgba(45,42,55,.12); }
+.project-art-friday { background: linear-gradient(135deg,#f5e8dc,#f1dcca 52%,#f8f1e9); }
+.project-art-dashboard { background: linear-gradient(135deg,#e8eaf5,#e3eaf5 55%,#f2edf7); }
+.project-art-legal { background: linear-gradient(135deg,#e7eff2,#e6edf0 55%,#f2f1ec); }
+.art-overline { z-index: 2; font-size: 9px; letter-spacing: .2em; color: rgba(37,36,42,.56); }
+.art-overline i { font-style: normal; padding: 0 5px; }
+.art-mark { z-index: 2; position: absolute; inset: 50% auto auto 50%; transform: translate(-50%,-57%); font: italic clamp(130px,17vw,210px)/.8 'Playfair Display',Georgia,serif; color: rgba(255,255,255,.8); text-shadow: 0 16px 55px rgba(50,45,65,.08); }
+.art-mark b { color: rgba(142,120,174,.58); font-weight: 500; }
+.art-wordmark { z-index: 2; font: 500 22px 'Playfair Display',Georgia,serif; color: rgba(37,36,42,.78); }
+.art-orbit { position: absolute; z-index: 1; width: 70%; aspect-ratio: 1; border: 1px solid rgba(75,68,91,.13); border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%,-50%) rotate(-28deg) scaleY(.52); }
+.art-orbit-b { width: 95%; transform: translate(-50%,-50%) rotate(42deg) scaleY(.5); border-color: rgba(75,68,91,.09); }
+.art-corner { position: absolute; right: 28px; bottom: 30px; font-size: 10px; letter-spacing: .15em; color: rgba(37,36,42,.42); }
+.project-index { display: block; font-size: 11px; letter-spacing: .14em; color: #9b91b2; margin-bottom: 14px; }
+.project-index span { color: #aaa8ad; font-size: 9px; }
+.project-text .status { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+.stack-group { background: rgba(255,255,255,.38); border: 1px solid rgba(255,255,255,.6); border-radius: 22px; padding: 26px; }
+.lab-card { border: 1px solid rgba(36,36,36,.04); transition: transform .3s ease, box-shadow .3s ease; }
+.lab-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(45,42,55,.07); }
+.setup-note { box-shadow: 0 14px 40px rgba(45,42,55,.045); }
+.contact-card { background: linear-gradient(130deg, #eeeaf7, #e9eef7); }
+.contact-list a { transition: opacity .2s ease; }
+.contact-list a:hover { opacity: .6; }
+.modal { box-shadow: 0 30px 100px rgba(20,18,30,.18); }
+.modal-backdrop { backdrop-filter: blur(5px); }
+button, a { -webkit-tap-highlight-color: transparent; }
+footer { max-width: 1160px; margin: 0 auto; }
+@media (max-width: 860px) {
+  .hero { min-height: 0; }
+  .project-art { min-height: 270px; }
+}
+@media (max-width: 520px) {
+  main { padding: 0 20px; }
+  section { padding: 86px 0; }
+  .hero { padding: 58px 0 82px; }
+  .project-art { min-height: 240px; padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-art, .lab-card, .btn, .desktop-nav a::after { transition: none !important; }
+}
