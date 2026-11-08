@@ -14,9 +14,9 @@ export const links = {
   fridayDashboard: 'https://dashboard-friday-v2.onrender.com',
   fridayLegal: 'https://twirlyowes.github.io/friday-v2-legal/',
   fridayLegalRepo: 'https://github.com/twirlyowes/friday-v2-legal',
-  discord: '',
+  discord: 'luvher4lyf',
   discordServer: '',
-  email: '',
+  email: 'twirlyowes@gmail.com',
 }
 
 export const projects = [
