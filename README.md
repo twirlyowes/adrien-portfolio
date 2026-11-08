@@ -1,18 +1,19 @@
-# Adrien — aka Twirly
+# Adrien aka Twirly
 
 Personal portfolio built with React, Vite and Framer Motion.
 
-## Setup
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+## Build and start
 
 ```bash
 npm run build
+npm run start
 ```
 
 Edit links, projects and setup details in `src/config.js`.
