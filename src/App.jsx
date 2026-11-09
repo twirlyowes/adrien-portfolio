@@ -12,7 +12,7 @@ function useTheme() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    localStorage.setItem('twirlyverse-theme', theme)
+    try { localStorage.setItem('twirlyverse-theme', theme) } catch { /* Theme still works for this session. */ }
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#201e1c' : '#fffaf6')
   }, [theme])
 
@@ -45,7 +45,7 @@ function ThemeToggle({ theme, onToggle }) {
 
 function Navigation({ theme, onToggle }) {
   const [open, setOpen] = useState(false)
-  const items = [['Work', '#work'], ['About', '#about'], ['Playground', '#playground'], ['Contact', '#contact']]
+  const items = [['Work', '#work'], ['About', '#about'], ['Playground', '#playground'], ['Craft', '#craft'], ['Setup', '#setup'], ['Contact', '#contact']]
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open)
@@ -84,7 +84,7 @@ function Hero() {
   const reduce = useReducedMotion()
   return (
     <section className="hero" id="top">
-      <div className="hero-meta"><span>INDEPENDENT CREATOR</span><span>{site.location.toUpperCase()}</span><span>AVAILABLE FOR INTERESTING IDEAS</span></div>
+      <div className="hero-meta"><span>INDEPENDENT CREATOR</span><span>{site.location.toUpperCase()}</span><span>ALWAYS IN PROGRESS</span></div>
       <div className="hero-main">
         <div className="hero-copy">
           <motion.p className="eyebrow" initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>A LITTLE UNIVERSE OF THINGS BUILT.</motion.p>
