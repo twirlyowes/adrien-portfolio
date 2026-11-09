@@ -3,16 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adrien aka Twirly — Developer &amp; Creator</title>
-    <meta name="description" content="Adrien aka Twirly: developer, creator and technology enthusiast building Discord bots, web tools and learning through real projects." />
-    <meta property="og:title" content="Adrien aka Twirly" />
-    <meta property="og:description" content="Developer, creator and technology enthusiast." />
+    <meta name="theme-color" content="#fffaf6" />
+    <meta name="description" content="Adrien aka Twirly — an independent creator from Mumbai learning by building Discord systems, web tools and experiments." />
+    <meta property="og:title" content="TWIRLYVERSE — Adrien aka Twirly" />
+    <meta property="og:description" content="A little universe of things built. Explore the work, experiments and interests of Adrien aka Twirly." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
+    <title>TWIRLYVERSE — Adrien aka Twirly</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        const saved = localStorage.getItem('twirlyverse-theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = saved || preferred;
+      } catch (_) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
