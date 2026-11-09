@@ -1,11 +1,10 @@
-// Edit your links and details here in one place.
+// Edit your identity, project links, skills and setup details here.
 export const site = {
   name: 'ADRIEN',
   alias: 'Twirly',
   handle: '@twirlyowes',
   location: 'Mumbai, India',
-  tagline:
-    'Developer, creator and technology enthusiast who enjoys building useful things, experimenting with technology and learning through real projects.',
+  tagline: 'A curious creator learning by building useful things, experimenting with technology and improving through real projects.',
 }
 
 export const links = {
@@ -23,17 +22,16 @@ export const projects = [
   {
     title: 'FRIDAY V2',
     status: 'Active',
-    description:
-      'A multipurpose Discord bot built with Node.js, discord.js v14 and Firebase / Firestore.',
+    description: 'A multipurpose Discord bot built with Node.js, discord.js v14 and Firebase / Firestore. Its evolving feature set includes moderation, server protection, verification, ModMail and temporary voice channels.',
     features: ['Moderation', 'Anti-nuke protection', 'Verification & captcha', 'ModMail', 'Temporary voice channels', 'Per-server configuration'],
-    tech: ['Node.js', 'discord.js v14', 'Firestore'],
+    tech: ['Node.js', 'discord.js v14', 'Firebase', 'Firestore'],
     github: links.fridayRepo,
     live: '',
   },
   {
     title: 'FRIDAY Dashboard',
     status: 'Live',
-    description: 'A web dashboard for configuring and managing FRIDAY servers with Discord OAuth2.',
+    description: 'A web dashboard for configuring and managing FRIDAY servers, with Discord OAuth2 authentication.',
     features: ['Server selection', 'Moderation settings', 'Security controls'],
     tech: ['HTML', 'CSS', 'JavaScript', 'Discord OAuth2'],
     github: '',
@@ -42,7 +40,7 @@ export const projects = [
   {
     title: 'FRIDAY Legal',
     status: 'Live',
-    description: 'Terms of Service and Privacy Policy website for FRIDAY.',
+    description: 'The public Terms of Service and Privacy Policy site supporting the FRIDAY project.',
     features: ['Terms of Service', 'Privacy Policy'],
     tech: ['GitHub Pages'],
     github: links.fridayLegalRepo,
@@ -50,10 +48,10 @@ export const projects = [
   },
   {
     title: 'FRIDAY Premium',
-    status: 'Concept',
-    description: 'An evolving premium subscription concept for FRIDAY. Not a launched service.',
-    features: ['Free / premium feature split', 'Server-based activation', 'Owner-only management'],
-    tech: ['Firestore'],
+    status: 'Concept — not launched',
+    description: 'An evolving subscription concept. This is not a live or publicly available service.',
+    features: ['Exploratory free / premium feature split', 'Potential server-based activation'],
+    tech: ['Concept'],
     github: '',
     live: '',
   },
@@ -67,8 +65,8 @@ export const techStack = {
 
 export const setup = [
   ['Processor', 'AMD Ryzen 7'],
-  ['Graphics', 'NVIDIA RTX 3050 Laptop GPU (6GB VRAM)'],
+  ['Graphics', 'NVIDIA RTX 3050 Laptop GPU · 6GB'],
   ['Memory', '16GB DDR5'],
   ['Storage', '512GB SSD'],
-  ['OS', 'Windows'],
+  ['Operating system', 'Windows'],
 ]
