@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'>
+  <rect width='1200' height='630' fill='#fffaf6'/>
+  <rect x='0' y='0' width='1200' height='630' fill='#f8eee7' opacity='0.7'/>
+  <circle cx='930' cy='300' r='230' fill='none' stroke='#c77955' stroke-opacity='0.35' stroke-width='2'/>
+  <ellipse cx='930' cy='300' rx='300' ry='120' fill='none' stroke='#c77955' stroke-opacity='0.25' stroke-width='2' transform='rotate(-18 930 300)'/>
+  <circle cx='930' cy='300' r='70' fill='#efd6c8'/>
+  <text x='930' y='322' font-family='Georgia, serif' font-style='italic' font-size='72' fill='#75452f' text-anchor='middle'>t</text>
+  <text x='80' y='190' font-family='Helvetica, Arial, sans-serif' font-weight='700' font-size='120' fill='#272321' letter-spacing='-6'>ADRIEN<tspan fill='#c77955'>.</tspan></text>
+  <text x='84' y='260' font-family='Georgia, serif' font-style='italic' font-size='44' fill='#c77955'>aka Twirly</text>
+  <line x1='84' y1='320' x2='200' y2='320' stroke='#c77955' stroke-width='2'/>
+  <text x='84' y='380' font-family='Helvetica, Arial, sans-serif' font-size='30' fill='#554d47'>Developer · Creator · Mumbai</text>
+  <text x='84' y='430' font-family='Helvetica, Arial, sans-serif' font-size='26' fill='#81766e'>Looking for collaborators on Discord bots.</text>
+  <text x='84' y='570' font-family='Helvetica, Arial, sans-serif' font-weight='600' font-size='18' fill='#a89c93' letter-spacing='3'>TWIRLYVERSE.ONRENDER.COM</text>
+</svg>

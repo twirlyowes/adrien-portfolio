@@ -1,0 +1,11 @@
+.tech-icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--muted);
+}
+.craft-group > div span.tech-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
