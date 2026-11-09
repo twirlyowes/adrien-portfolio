@@ -7,7 +7,7 @@ const ease = [0.22, 1, 0.36, 1]
 function useTheme() {
   const [theme, setTheme] = useState(() => {
     if (typeof window === 'undefined') return 'light'
-    return localStorage.getItem('twirlyverse-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    try { return localStorage.getItem('twirlyverse-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') } catch { return 'light' }
   })
 
   useEffect(() => {
@@ -158,7 +158,18 @@ function ProjectArtwork({ variant = 'friday' }) {
 function ProjectDetails({ project, onClose }) {
   useEffect(() => {
     const previous = document.activeElement
-    const closeOnEscape = (event) => { if (event.key === 'Escape') onClose() }
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') onClose()
+      if (event.key === 'Tab') {
+        const dialog = document.querySelector('.project-dialog')
+        const focusable = dialog?.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+        if (!focusable?.length) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() }
+      }
+    }
     document.addEventListener('keydown', closeOnEscape)
     document.body.style.overflow = 'hidden'
     const closeButton = document.querySelector('.project-dialog-close')
@@ -223,7 +234,7 @@ function Setup() {
   return (
     <section className="setup-section section-pad" id="setup">
       <SectionIntro index="06" kicker="BEHIND THE SCREEN" title={<>The tools behind<br /><em>the tinkering.</em></>}><span>The setup I use to build, test, play and learn.</span></SectionIntro>
-      <div className="setup-layout"><Reveal className="setup-specs">{setup.map(([label, value], i) => <div key={label}><span>0{i + 1}</span><dt>{label}</dt><dd>{value}</dd></div>)}</Reveal><Reveal className="setup-note"><span className="micro-label">OFF THE MAIN THREAD</span><p>When I'm not building, I'm usually exploring PC hardware, gaming technology or Minecraft modding and optimisation.</p><span className="setup-stamp">MUMBAI / INDIA</span></Reveal></div>
+      <div className="setup-layout"><Reveal className="setup-specs"><dl>{setup.map(([label, value], i) => <div key={label}><span>0{i + 1}</span><dt>{label}</dt><dd>{value}</dd></div>)}</dl></Reveal><Reveal className="setup-note"><span className="micro-label">OFF THE MAIN THREAD</span><p>When I'm not building, I'm usually exploring PC hardware, gaming technology or Minecraft modding and optimisation.</p><span className="setup-stamp">MUMBAI / INDIA</span></Reveal></div>
     </section>
   )
 }
