@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { site, links, projects, techStack, setup } from './config.js'
+import './stack.css'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -221,11 +222,28 @@ function Playground() {
   )
 }
 
+const techPaths = {
+  'Node.js': <><path d='M12 2.5 20.5 7.4v9.8L12 22.1 3.5 17.2V7.4Z' /><path d='M9 15.5V8.5l6 7V8.5' /></>,
+  'discord.js v14': <><path d='M4.5 7.5c2-1 4.6-1.6 7.5-1.6s5.5.6 7.5 1.6c1.2 2.3 1.9 5.2 2 8.2-1.8 1.4-3.7 2.2-5.5 2.6l-1.2-1.8M4.5 7.5c-1.2 2.3-1.9 5.2-2 8.2 1.8 1.4 3.7 2.2 5.5 2.6l1.2-1.8' /><circle cx='9' cy='13' r='1.2' /><circle cx='15' cy='13' r='1.2' /></>,
+  'Firebase': <><path d='M5 19 9 3.5l3 5.5 3 4z' /><path d='M5 19l10-6 4 6-7 3z' /></>,
+  'GitHub': <><circle cx='12' cy='12' r='9.5' /><path d='M9.5 19.5v-2.6c0-.9.3-1.6.8-2.1 2.4-.3 4.9-1.2 4.9-5.3 0-1.1-.4-2-1.1-2.8.1-.8.1-1.8-.3-2.6 0 0-.9-.3-2.9 1a10 10 0 0 0-5.2 0C7.3 4.3 6.4 4.6 6.4 4.6c-.4.8-.4 1.8-.3 2.6-.7.8-1.1 1.7-1.1 2.8 0 4.1 2.5 5 4.9 5.3-.5.5-.8 1.2-.9 2.1v2.6' /></>,
+}
+
+function TechIcon({ name }) {
+  const paths = techPaths[name]
+  if (!paths) return null
+  return (
+    <svg className="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {paths}
+    </svg>
+  )
+}
+
 function Craft() {
   return (
     <section className="craft-section section-pad" id="craft">
       <SectionIntro index="05" kicker="TOOLS & CURIOSITY" title={<>Learning by<br /><em>making.</em></>}><span>A living snapshot of the tools I use and the technologies I'm exploring.</span></SectionIntro>
-      <div className="craft-grid">{Object.entries(techStack).map(([group, items], i) => <Reveal key={group} delay={i * 0.08} className="craft-group"><span className="micro-label">0{i + 1} / {group.toUpperCase()}</span><div>{items.map((item) => <span key={item}>{item}</span>)}</div></Reveal>)}</div>
+      <div className="craft-grid">{Object.entries(techStack).map(([group, items], i) => <Reveal key={group} delay={i * 0.08} className="craft-group"><span className="micro-label">0{i + 1} / {group.toUpperCase()}</span><div>{items.map((item) => <span key={item} className={techPaths[item] ? 'tech-chip' : undefined}><TechIcon name={item} />{item}</span>)}</div></Reveal>)}</div>
     </section>
   )
 }
