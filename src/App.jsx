@@ -106,7 +106,7 @@ function Hero() {
           initial={reduce ? false : { opacity: 0, scale: 0.82, rotate: -12 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.5, delay: 0.25, ease }}>
           <div className="art-glow" /><div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="orbit orbit-three" />
           <div className="art-core"><span>t</span></div><span className="art-satellite satellite-one" /><span className="art-satellite satellite-two" />
-          <span className="art-caption">FIG. 01 — A MIND IN MOTION</span><span className="art-coordinate">19°04' N<br />72°52' E</span>
+          <span className="art-caption">FIG. 01 — A MIND IN MOTION</span>
         </motion.div>
       </div>
       <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span className="scroll-line" /><span>01 / 07</span></div>
