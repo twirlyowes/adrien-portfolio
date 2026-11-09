@@ -244,7 +244,7 @@ function Contact() {
     <section className="contact-section section-pad" id="contact">
       <div className="contact-top"><span className="section-index">07 / 07</span><span className="eyebrow">HAVE SOMETHING INTERESTING?</span></div>
       <Reveal className="contact-main"><h2>Let's make<br /><em>something matter.</em></h2><a className="contact-email" href={`mailto:${links.email}`}>{links.email} <span>↗</span></a></Reveal>
-      <div className="contact-bottom"><p>Good ideas start with a conversation.</p><div><a href={links.github} target="_blank" rel="noreferrer">GitHub ↗</a>{links.discordHandle && <span>Discord · {links.discordHandle}</span>}</div></div>
+      <div className="contact-bottom"><p>Looking for collaborators on Discord bots.</p><div><a href={links.github} target="_blank" rel="noreferrer">GitHub ↗</a>{links.discordHandle && <span>Discord · {links.discordHandle}</span>}</div></div>
     </section>
   )
 }
